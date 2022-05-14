@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wemove/home/startuppage.dart';
+import 'User_Interfaces/splash_screen.dart';
 import 'home/Mainpage.dart';
 
 void main() {
@@ -14,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Login UI',
+      title: 'weMove',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: Mainpage(),
+      home: SplashScreen(title: 'weMove'),
     );
   }
 }

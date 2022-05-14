@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wemove/Utils/dimensions.dart';
 import 'package:wemove/widgets/big_text.dart';
+import 'package:wemove/widgets/colors.dart';
 import 'package:wemove/widgets/small_text.dart';
 import 'move_solution_body.dart';
 
@@ -22,10 +24,10 @@ class _MainpageState extends State<Mainpage> {
 
           //showing header
           Container(
-            //color: Colors.brown,
+            color: AppColors.background,
             child: Container(
-              margin: EdgeInsets.only(top:45, bottom:15),
-              padding: EdgeInsets.only(left:20, right: 20),
+              margin: EdgeInsets.only(top:Dimensions.padding45, bottom:Dimensions.padding15),
+              padding: EdgeInsets.only(left:Dimensions.padding20, right: Dimensions.padding20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -43,11 +45,11 @@ class _MainpageState extends State<Mainpage> {
                     ),
                     Center(
                       child: Container(
-                        width: 45,
-                        height: 45,
-                        child: Icon(Icons.search, color:Colors.white),
+                        width: Dimensions.padding45,
+                        height: Dimensions.padding45,
+                        child: Icon(Icons.search, color:Colors.white, size: Dimensions.padding30,),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(Dimensions.padding15),
                           color: Colors.greenAccent,
                         ),
                       ),
@@ -60,6 +62,8 @@ class _MainpageState extends State<Mainpage> {
 
           //showing body
           MoveTypesSamples(),
+
+          //showing last part
         ],
       ),
     );

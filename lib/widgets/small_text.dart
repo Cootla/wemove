@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:wemove/Utils/dimensions.dart';
 
 class SmallText extends StatelessWidget {
   final Color? color;
@@ -8,7 +9,7 @@ class SmallText extends StatelessWidget {
 
   SmallText({Key? key, this.color = const Color(0xFF1b2d1e),
     required this.text,
-    this.size=12,
+    this.size=0,
     this.height=1.2}) : super(key: key);
 
   @override
@@ -18,7 +19,7 @@ class SmallText extends StatelessWidget {
         style: TextStyle(
             fontFamily: 'Roboto',
             color: color,
-            fontSize: size,
+            fontSize: size==0?Dimensions.Smalltext15:size,
             height: height,
         )
     );

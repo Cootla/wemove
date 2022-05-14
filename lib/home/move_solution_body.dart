@@ -6,6 +6,7 @@ import 'package:wemove/widgets/big_text.dart';
 import 'package:wemove/widgets/small_text.dart';
 
 import '../widgets/colors.dart';
+import 'Mainpage.dart';
 
 class MoveTypesSamples extends StatefulWidget {
   const MoveTypesSamples({Key? key}) : super(key: key);
@@ -40,8 +41,9 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slider section
         Container(
-            //color: Colors.red,
+            color: AppColors.background ,
             height: Dimensions.pageView,
             child: PageView.builder(
                 controller: pageController,
@@ -51,6 +53,7 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
                 }
             )
         ),
+        //dots
         new DotsIndicator(
           dotsCount: 3,
           position: _currPageValue,
@@ -58,12 +61,16 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
             activeColor: AppColors.mainColor1,
             size: const Size.square(9.0),
             activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Dimensions.padding5)),
           )
-        )
+        ),
+
+
+
       ],
     );
   }
+
   Widget _buildPageItem(int index){
     Matrix4 matrix = new Matrix4.identity();
     if (index==_currPageValue.floor()){
@@ -93,11 +100,10 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
      child: Stack(
        children: [
         Container(
-        height: Dimensions.pageView1,
-        //width: 22,
-       margin: EdgeInsets.only(left:5, right:5),
+          height: Dimensions.pageView1,
+       margin: EdgeInsets.only(left:Dimensions.padding5, right:Dimensions.padding5),
        decoration: BoxDecoration(
-           borderRadius: BorderRadius.circular(30),
+           borderRadius: BorderRadius.circular(Dimensions.padding20),
            color: Color(0xFF69c5df),
            image: DecorationImage(
                fit: BoxFit.cover,
@@ -112,9 +118,9 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
           alignment: Alignment.bottomCenter,
           child: Container(
              height:Dimensions.pageViewTextContainer,
-             margin: EdgeInsets.only(left:20, right:20, bottom:5),
+             margin: EdgeInsets.only(left:Dimensions.padding20, right:Dimensions.padding20, bottom:Dimensions.padding5),
              decoration: BoxDecoration(
-                 borderRadius: BorderRadius.circular(20),
+                 borderRadius: BorderRadius.circular(Dimensions.padding20),
                  color: Colors.white24,
                  /*boxShadow: [
                    BoxShadow(
@@ -130,12 +136,13 @@ class _MoveTypesSamplesState extends State<MoveTypesSamples> {
 
              ),
             child: Container(
-              padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+              color: AppColors.background,
+              padding: EdgeInsets.only(top: Dimensions.padding10, left: Dimensions.padding15, right: Dimensions.padding15),
               child: Column(
                 children: [
-                  BigText(text: "Small Moves",  size: 35,  color: AppColors.iconColor2, fontWeight: FontWeight.bold),
+                  BigText(text: "Small Moves", color: AppColors.iconColor2, size: Dimensions.Bigtext35, fontWeight: FontWeight.bold),
                   SmallText(text: "Moving from one place to another made easy.\n"
-                      "You need to change an apartment, just a click away", size:15),
+                      "You need to change an apartment, just a click away"),
                   SizedBox(height: Dimensions.height10,),
                 ]
               )
