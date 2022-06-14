@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../Utils/dimensions.dart';
-import '../home/startuppage.dart';
+import 'startuppage.dart';
 import '../widgets/colors.dart';
 
 
@@ -58,9 +58,12 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 140.0,
             width: 140.0,
             child: Center(
-              child: Text("weMove🚛",
+             /* child: Text("weMove🚛",
                 style: TextStyle(fontSize:Dimensions.Bigtext30, color: AppColors.iconColor1, fontWeight: FontWeight.bold),
-              )
+              )*/
+             child: ClipOval(
+             child: Image.asset("assets/image/logowhite.jpg"), //put your logo here
+              ),
 
             ),
               decoration: BoxDecoration(

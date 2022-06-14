@@ -2,6 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import '../Utils/dimensions.dart';
+import '../helper/validator.dart';
+import '../widgets/colors.dart';
 import '../widgets/theme_helper.dart';
 import 'forgot_password_verification_page.dart';
 import 'login_page.dart';
@@ -19,38 +22,38 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _headerHeight = 300;
+    double _headerHeight = Dimensions.height300;
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.background,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+             /* Container(
                 height: _headerHeight,
               //  child: HeaderWidget(_headerHeight, true, Icons.password_rounded),
-              ),
+              ),*/
               SafeArea(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  margin: EdgeInsets.fromLTRB(Dimensions.width25, Dimensions.height10, Dimensions.width25, Dimensions.height10),
+                  padding: EdgeInsets.fromLTRB(Dimensions.width10, 0, Dimensions.width10, 0),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        margin: EdgeInsets.fromLTRB(Dimensions.width20, 0, Dimensions.width20, 0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Enter Your Phone Number',
                               style: TextStyle(
-                                  fontSize: 35,
+                                  fontSize: Dimensions.Bigtext35,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: Dimensions.height10,),
                             Text('Start with your country code eg. +7',
                               style: TextStyle(
                                 // fontSize: 20,
@@ -59,7 +62,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: Dimensions.height10,),
                             Text('We will send a verification code to check your authenticity.',
                               style: TextStyle(
                                 color: Colors.black38,
@@ -70,7 +73,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: Dimensions.height40),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -78,30 +81,24 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             Container(
                               child: TextFormField(
                                 decoration: ThemeHelper().textInputDecoration("Telephone Number", "Enter your telephone number"),
-                                validator: (val){
-                                  if(val!.isEmpty){
-                                    return "Box can't be empty";
-                                  }
-                                  else if(!(val!.isEmpty) && !RegExp(r"^(\d+)*$").hasMatch(val)){
-                                    return "Enter a valid phone number";
-                                  }
-                                  return null;
-                                },
+                                validator: Validator().number,
+                                keyboardType: TextInputType.number,
+
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: Dimensions.height40),
                             Container(
                               decoration: ThemeHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      40, 10, 40, 10),
+                                  padding: EdgeInsets.fromLTRB(
+                                      Dimensions.width40, Dimensions.height10, Dimensions.width40, Dimensions.height10),
                                   child: Text(
                                     "Send".toUpperCase(),
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: Dimensions.Bigtext20,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -118,7 +115,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30.0),
+
+
+                            SizedBox(height: Dimensions.height30),
                             Text.rich(
                               TextSpan(
                                 children: [

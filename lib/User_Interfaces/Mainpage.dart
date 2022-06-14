@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wemove/Utils/dimensions.dart';
 import 'package:wemove/widgets/big_text.dart';
 import 'package:wemove/widgets/colors.dart';
-import 'package:wemove/widgets/small_text.dart';
-import 'move_solution_body.dart';
+import '../Mini_page/movingselectpage.dart';
 
 
 class Mainpage extends StatefulWidget {
@@ -19,11 +17,26 @@ class _MainpageState extends State<Mainpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
+
+      //header
+      appBar: AppBar(
+          backgroundColor: AppColors.background,
+          automaticallyImplyLeading: true,
+          //`true` if you want Flutter to automatically add Back Button when needed,
+          //or false if you want to force your own back button every where
+          title: BigText(text: "Select Move Type", color: AppColors.headtext ),
+          leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.blue),
+            onPressed: () => Navigator.pop(context, false),
+          )
+      ),
+
+      //body
       body: Column(
         children: [
 
           //showing header
-          Container(
+        /*  Container(
             color: AppColors.background,
             child: Container(
               margin: EdgeInsets.only(top:Dimensions.padding45, bottom:Dimensions.padding15),
@@ -58,10 +71,14 @@ class _MainpageState extends State<Mainpage> {
                   ],
                 )
             ),
-          ),
+          ),*/
 
           //showing body
-          MoveTypesSamples(),
+        Expanded(child: SingleChildScrollView(
+          child:  MoveSelectPage(),
+        ))
+
+          //)
 
           //showing last part
         ],
